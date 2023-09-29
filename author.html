@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Author</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2>Author entry Jacob Layman</h2>
+
+<form>
+    <label for="form1_author">The hidden author name: </label>
+    <input type ="password" id="form1_author" name="form1_aauthor" value="Dickens"> <br>
+
+    <label for="form1_guess">Guess the author: </label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="checkAuthor()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+    var good = 0;
+    var oops = 0;
+
+    function checkAuthor(){
+        var authorInput = document.getElementById("form1_author").value;
+        var guessInput = document.getElementById("form1_guess").value;
+
+        if(authorInput == guessInput){
+            good++;
+            alert("You got it right!");
+        } else {
+            oops++;
+            alert("Sorry");
+        }
+        document.getElementById("result").innerHTML = "Good: " + good + " Oops: " + oops;
+    }
+</script>
+
+</body>
+</html> 
