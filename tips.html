@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tips</title>
+</head>
+<body>
+
+<h2>Jacob shows tip amounts</h2>
+
+<form>
+    <label for="form1_baseAmount">Enter Base Amount: </label>
+    <input type ="number" id="form1_baseAmount" name="form1_baseAmount" value=50> <br>
+
+    <label for="form1_tipPerc">Enter The Tip Percent </label>
+    <input type ="number" id="form1_tipPerc" name="form1_tipPerc" value=15> <br>
+
+    <input type="button" onclick="tips()" value="Show Tip">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function tips(){
+    const baseAmount = parseFloat(document.getElementById("form1_baseAmount").value);
+    const tipPerc = parseFloat(document.getElementById("form1_tipPerc").value);
+    let toShow = "";
+
+    for (let i = 0; i < 5; i++) {
+        const calculatedTip = baseAmount * (tipPerc + i * 4) / 100;
+        toShow += `Tips are: ${tipPerc + i * 4}% is ${calculatedTip}; `;
+    }
+
+    document.getElementById("result").innerHTML = toShow;
+}
+</script>
+
+</body>
+</html> 
