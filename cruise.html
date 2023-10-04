@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cruise</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<h2>Jacob Goes on a Cruise</h2>
+
+<form>
+    <label for="shared">Shares Cabin: </label>
+    <input type ="checkbox" id="shared" value="True"> <br>
+
+    <label for="breakfast">Breakfast: </label>
+    <input type ="checkbox" id="breakfast" value="True"> <br>
+
+    <label for="pool">Pool Pass: </label>
+    <input type ="checkbox" id="pool" value="False"> <br>
+
+    <input type="button" onclick="selectCruise()" value="Select a cruise">
+</form>
+<p id = "result1">Result will be displayed here.</p>
+<script>
+var my_cruise = {};
+
+// Create a function selectCruise.
+function selectCruise() {
+    // Reset my_cruise to an empty object.
+    my_cruise = {};
+
+    // Check if the 'shared' checkbox is checked and set the 'shared' property accordingly.
+    my_cruise.shared = document.getElementById('shared').checked;
+
+    // Check if the 'breakfast' checkbox is checked and set the 'breakfast' property accordingly.
+    my_cruise.breakfast = document.getElementById('breakfast').checked;
+
+    // Check if the 'pool' checkbox is checked and set the 'pool' property accordingly.
+    my_cruise.pool = document.getElementById('pool').checked;
+
+    // Replace the innerHTML for the tagged element with my_cruise.
+    document.getElementById('result1').innerHTML = my_cruise;
+
+}
+function updateCruise() {
+    my_cruise.days = parseInt(document.getElementById('days').value);
+
+    // Get the value from the 'price' input element and set the 'price' property in my_cruise.
+    my_cruise.price = parseFloat(document.getElementById('price').value);
+
+    // Replace the innerHTML for the tagged element with my_cruise.
+    document.getElementById('result').innerHTML = my_cruise;   
+}
+</script>
+</body>
+</html>
+<br>
+<hr>
+<br>
+<form>
+    <label for="days">Enter the number of days: </label>
+    <input type ="text" id="days" value="days"> <br>
+
+    <label for="price">Enter price: </label>
+    <input type ="text" id="price" value="price"> <br>
+
+    <input type="button" onclick="updateCruise()" value="Update the cruise">
+</form>
+
+
+<p id="result">Result will be displayed here. </p>
+</body>
+</html> 
