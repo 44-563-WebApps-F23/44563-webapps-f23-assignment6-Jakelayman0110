@@ -18,7 +18,7 @@
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result1">This text will be replaced </p>
 
 <script> 
 
@@ -32,9 +32,45 @@ function tips(){
         toShow += `Tips are: ${tipPerc + i * 4}% is ${calculatedTip}; `;
     }
 
-    document.getElementById("result").innerHTML = toShow;
+    document.getElementById("result1").innerHTML = toShow;
 }
 </script>
+<form>
+    <label>
+        <input type="radio" name="operation" value="sum" onclick="chooseOp()"> Sum
+    </label><br>
+    <label>
+        <input type="radio" name="operation" value="difference" onclick="chooseOp()"> Difference
+    </label><br>
+    <label>
+        <input type="radio" name="operation" value="product" onclick="chooseOp()"> Product
+    </label><br>
+</form>
 
+<p id="result2">Result will be displayed here.</p>
+<script>
+    function chooseOp() {
+        const baseValue = parseFloat(document.getElementById("form1_baseAmount").value);
+        const tipValue = parseFloat(document.getElementById("form1_tipPerc").value);
+        const operation = document.querySelector('input[name="operation"]:checked').value;
+        let resultText = "";
+
+        switch (operation) {
+            case "sum":
+                resultText = `Sum of ${baseValue} and ${tipValue} is ${baseValue + tipValue}`;
+                break;
+            case "difference":
+                resultText = `Difference between ${baseValue} and ${tipValue} is ${baseValue - tipValue}`;
+                break;
+            case "product":
+                resultText = `Product of ${baseValue} and ${tipValue} is ${baseValue * tipValue}`;
+                break;
+            default:
+                resultText = "Select an operation.";
+        }
+
+        document.getElementById("result2").innerHTML = resultText;
+    }
+</script>
 </body>
 </html> 
